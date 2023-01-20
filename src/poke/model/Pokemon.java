@@ -78,17 +78,17 @@ public abstract class Pokemon implements Serializable
 	{
 		this.name = name;
 	}
-	public int getPokedexNumber(int pokeNum)
+	public int getPokedexNumber()
 	{
 		
-		return pokeNum;
+		return this.pokedexNumber;
 	}
 	
 	@Override
 	public String toString()
 	{
-		String description = "Hi, I am a " +  this.getClass().getSimpleName() + " pokemon my name is: " + getName();
-		
+		String description = "Hi, I am a " +  this.getClass().getSimpleName() + " pokemon my name is: " + getName() ;
+		description += "\n " + "my pokedex number is: " + this.getPokedexNumber();
 		return description;
 	}
 
