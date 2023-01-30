@@ -24,8 +24,8 @@ private void setupFrame()
 	this.setContentPane(panel);
 	this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	this.setTitle("");
-	this.setSize(800, 600);
-	this.setResizable(false);
+	this.setSize(1024, 768);
+	this.setResizable(true);
 	
 	
 	this.setVisible(true);
