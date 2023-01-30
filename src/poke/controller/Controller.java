@@ -3,22 +3,19 @@ package poke.controller;
 
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
 
 import poke.view.PokeFrame;
 import poke.view.*;
-import poke.model.*;
-import poke.model.monsters.Gengar;
-import poke.model.monsters.Lucario;
-import poke.model.monsters.Pichu;
-import poke.model.monsters.Pokemon;
-import poke.model.monsters.Rowlet;
-import poke.model.monsters.Sprigatitio;
+import poke.model.monsters.*;
+
+
 
 public class Controller
 {
 	
 	private PokeFrame window;
-	ArrayList<Pokemon> pokemonList = new ArrayList<Pokemon>();
+	ArrayList<Pokemon> pokedex = new ArrayList<Pokemon>();
 	
 	String dataFile = "";
 	
@@ -43,20 +40,50 @@ public class Controller
 		return poke;
 	}
 	
+	public void updateCurrentPokemon(String name, int index ,int health, boolean evolve)
+	{
+		Pokemon current = pokedex.get(index);
+		current.setName(name);
+		current.setHealth(health);
+		current.setCanEvolve(evolve);
+	}
+	
+	
+	
 	
 	
 	private void createPokedex()
 	{
-		pokemonList.add(new Gengar());
-		pokemonList.add(new Lucario());
-		pokemonList.add(new Sprigatitio());
-		pokemonList.add(new Rowlet());
-		pokemonList.add(new Pichu());
-		pokemonList.add(new Gengar(120, "Sean124"));
-		pokemonList.add(new Rowlet("little guy"));
-		pokemonList.add(new Sprigatitio(940, "Grass Cat"));
-		pokemonList.add(new Pichu("Small rodent"));
-		pokemonList.add(new Lucario(345, "Big Guy"));
+		pokedex.add(new Gengar());
+		pokedex.add(new Lucario());
+		pokedex.add(new Sprigatitio());
+		pokedex.add(new Rowlet());
+		pokedex.add(new Pichu());
+		pokedex.add(new Gengar(120, "Sean124"));
+		pokedex.add(new Rowlet("little guy"));
+		pokedex.add(new Sprigatitio(940, "Grass Cat"));
+		pokedex.add(new Pichu("Small rodent"));
+		pokedex.add(new Lucario(345, "Big Guy"));
 	}
+
+	
+	public boolean validateNumber(String text)
+	{
+		boolean isValid = false;
+		
+		try
+		{
+			Integer.parseInt(text);
+			isValid = true;
+		}
+		catch(NumberFormatException error)
+		{
+			JOptionPane.showMessageDialog(window, "Use a valid number");
+		}
+		
+		return isValid;
+	}
+	
+	
 	
 }

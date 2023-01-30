@@ -35,6 +35,8 @@ public class PokePanel extends JPanel
 	private JLabel numberLabel;
 	private JLabel healthLabel;
 	
+	private JButton updateButton;
+	
 	private JPanel fieldPanel;
 	
 	private JLabel imageLabel;
@@ -59,6 +61,8 @@ public class PokePanel extends JPanel
 		this.nameLabel = new JLabel("Pokemon Name:");
 		this.numberLabel = new JLabel("Pokedex #:");
 		this.healthLabel = new JLabel("Pokemon Health:");
+		
+		this.updateButton = new JButton("Update Pokemon");
 		
 		this.fieldPanel = new JPanel(new GridLayout(0, 2));
 		
@@ -95,6 +99,8 @@ public class PokePanel extends JPanel
 	
 	this.fieldPanel.add(evolveBox);
 	this.fieldPanel.add(typePane);
+	this.fieldPanel.add(updateButton);
+	
 	
 	typePane.setViewportView(typesArea);
 	typesArea.setEditable(false);
@@ -113,6 +119,24 @@ public class PokePanel extends JPanel
 	private void setupListeners()
 	{
 		
+		updateButton.addActionListener(click -> collectInput());
+	}
+	
+	private void collectInput()
+	{
+		String name = nameField.getText();
+		String health = healthField.getText();
+		boolean canEvolve = evolveBox.isSelected();
+		int selectedPokemonIndex = pokedexSelector.getSelectedIndex();
+		
+		if(app.validateNumber(health))
+		{
+			int healthValue = Integer.parseInt(health);
+			
+			app.updateCurrentPokemon(name, selectedPokemonIndex, healthValue, canEvolve);
+			
+			
+		}
 		
 	}
 	
