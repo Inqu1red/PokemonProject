@@ -26,16 +26,47 @@ public class PokePanel extends JPanel
 	private JTextField healthField;
 	private JTextField numberField;
 	
-	private JCheckBox evolution;
+	private JCheckBox evolveBox;
 	
 	private JTextArea typesArea;
 	private JScrollPane typePane;
 	
-	private JLabel 
+	private JLabel nameLabel;
+	private JLabel numberLabel;
+	private JLabel healthLabel;
+	
+	private JPanel fieldPanel;
+	
+	private JLabel imageLabel;
+	private ImageIcon icon;
+	private JComboBox<String> pokedexSelector;
+	
 	
 	public PokePanel(Controller app)
 	{
 		super();
+		this.app = app;
+		
+		this.layout = new SpringLayout();
+		this.nameField = new JTextField("Name");
+		this.numberField = new JTextField("Number");
+		this.healthField = new JTextField("Health");
+		
+		this.evolveBox = new JCheckBox("Pokemon Can evolve", false);
+		this.typesArea = new JTextArea(20, 20);
+		this.typePane = new JScrollPane();
+		
+		this.nameLabel = new JLabel("Pokemon Name:");
+		this.numberLabel = new JLabel("Pokedex #:");
+		this.healthLabel = new JLabel("Pokemon Health:");
+		
+		this.fieldPanel = new JPanel(new GridLayout(0, 2));
+		
+		this.imageLabel = new JLabel("PlaceHolder");
+		this.icon = new ImageIcon();
+		this.pokedexSelector = new JComboBox<String>();
+		
+		
 		
 		setupPanel();
 		setupListeners();
