@@ -1,8 +1,6 @@
-package poke.model;
+package poke.model.monsters;
 
-
-
-	public class Gengar extends Pokemon
+public class Gengar extends Pokemon
 	{
 		public Gengar() 
 		{

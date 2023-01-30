@@ -1,4 +1,4 @@
-package poke.model;
+package poke.model.monsters;
 
 public class Pichu extends Pokemon
 {

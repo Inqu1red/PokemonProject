@@ -1,6 +1,4 @@
-package poke.model;
-
-
+package poke.model.monsters;
 
 public class Rowlet extends Pokemon
 {

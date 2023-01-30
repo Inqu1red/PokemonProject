@@ -1,4 +1,4 @@
-package poke.model;
+package poke.model.monsters;
 
 import java.io.Serializable;
 import java.util.ArrayList;

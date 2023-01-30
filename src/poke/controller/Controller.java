@@ -3,18 +3,28 @@ package poke.controller;
 
 import java.util.ArrayList;
 
+
+import poke.view.PokeFrame;
+import poke.view.*;
 import poke.model.*;
+import poke.model.monsters.Gengar;
+import poke.model.monsters.Lucario;
+import poke.model.monsters.Pichu;
+import poke.model.monsters.Pokemon;
+import poke.model.monsters.Rowlet;
+import poke.model.monsters.Sprigatitio;
 
 public class Controller
 {
-
+	
+	private PokeFrame window;
 	ArrayList<Pokemon> pokemonList = new ArrayList<Pokemon>();
 	
 	String dataFile = "";
 	
 	public Controller()
 	{
-		
+		this.window = new PokeFrame(this);
 	}
 	
 	public void start()
