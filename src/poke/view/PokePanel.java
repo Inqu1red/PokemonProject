@@ -79,8 +79,34 @@ public class PokePanel extends JPanel
 	private void setupPanel()
 	{
 	
+	this.setBackground(Color.RED);
 	this.setLayout(layout);
-		
+	
+	this.setPreferredSize(new Dimension(1024, 768));
+	
+	this.fieldPanel.add(nameLabel);
+	this.fieldPanel.add(nameField);
+	
+	this.fieldPanel.add(numberLabel);
+	this.fieldPanel.add(numberField);
+	
+	this.fieldPanel.add(healthLabel);
+	this.fieldPanel.add(healthField);
+	
+	this.fieldPanel.add(evolveBox);
+	this.fieldPanel.add(typePane);
+	
+	typePane.setViewportView(typesArea);
+	typesArea.setEditable(false);
+	numberField.setEditable(false);
+	
+	typePane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+	typePane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+	
+	this.add(fieldPanel);
+	this.add(imageLabel);
+	this.add(pokedexSelector);
+	
 	
 	}
 	
