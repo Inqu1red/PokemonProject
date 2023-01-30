@@ -12,6 +12,7 @@ import javax.swing.JComboBox;
 import javax.swing.ImageIcon;
 
 import java.awt.GridLayout;
+import java.awt.Label;
 import java.awt.Color;
 import java.awt.Dimension;
 import poke.controller.Controller;
@@ -109,10 +110,15 @@ public class PokePanel extends JPanel
 	typePane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 	typePane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
 	
+	
+	imageLabel.setVerticalTextPosition(JLabel.BOTTOM);
+	imageLabel.setHorizontalTextPosition(Label.CENTER);
+	
 	this.add(fieldPanel);
 	this.add(imageLabel);
 	this.add(pokedexSelector);
 	
+	updateDisplay("");
 	
 	}
 	
@@ -121,6 +127,27 @@ public class PokePanel extends JPanel
 		
 		updateButton.addActionListener(click -> collectInput());
 	}
+	
+	
+	private void updateDisplay(String name)
+	{
+		
+		String path = "/poke/view/images";		
+		String defaultName = "Rowlet";
+		String extension = ".png";
+		
+		try
+		{
+			icon = new ImageIcon(getClass().getResource(path + name + extension));
+		}
+		catch(NullPointerException missingFile)
+		{
+			icon = new ImageIcon(getClass().getResource(path + defaultName + extension) );
+		}
+		
+	
+	}
+	
 	
 	private void collectInput()
 	{
