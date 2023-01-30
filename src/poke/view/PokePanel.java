@@ -79,7 +79,7 @@ public class PokePanel extends JPanel
 	private void setupPanel()
 	{
 	
-	this.setBackground(Color.RED);
+	this.setBackground(Color.MAGENTA);
 	this.setLayout(layout);
 	
 	this.setPreferredSize(new Dimension(1024, 768));
