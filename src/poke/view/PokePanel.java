@@ -112,7 +112,7 @@ public class PokePanel extends JPanel
 	
 	
 	imageLabel.setVerticalTextPosition(JLabel.BOTTOM);
-	imageLabel.setHorizontalTextPosition(Label.CENTER);
+	imageLabel.setHorizontalTextPosition(JLabel.CENTER);
 	
 	this.add(fieldPanel);
 	this.add(imageLabel);
@@ -132,7 +132,7 @@ public class PokePanel extends JPanel
 	private void updateDisplay(String name)
 	{
 		
-		String path = "/poke/view/images";		
+		String path = "/poke/view/images/";		
 		String defaultName = "Rowlet";
 		String extension = ".png";
 		
