@@ -19,6 +19,20 @@ import javax.swing.JOptionPane;
 public class IOController
 {
 
+	public static ArrayList<Pokemon> loadData(String dataFile, PokeFrame frame)
+	{
+	ArrayList<Pokemon> pokeList = null;
+	
+	
+	
+	return pokeList;
+	}
+	
+	
+	public static void saveData(String dataFile, ArrayList<Pokemon> pokemonList, PokeFrame frame)
+	{
+		
+	}
 	
 	
 	
