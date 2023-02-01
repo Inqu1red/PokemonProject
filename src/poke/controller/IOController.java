@@ -23,12 +23,27 @@ public class IOController
 	{
 	ArrayList<Pokemon> pokeList = null;
 	
-	
+	try(FileInputStream fileStream = new FileInputStream(dataFile);
+			ObjectInputStream inputStream = new ObjectInputStream(fileStream))
+	{
+		ArrayList<Pokemon> saved = (ArrayList<Pokemon>) inputStream.readObject();
+		pokeList = saved;
+		
+	}
+	catch(IOException fileError )
+	{
+		JOptionPane.showMessageDialog(frame, fileError.getMessage(), "Bad File", JOptionPane.ERROR_MESSAGE);
+	}
+	catch(ClassNotFoundException classError)
+	{
+		JOptionPane.showMessageDialog(frame, classError.getMessage(), "Wrong Type", JOptionPane.ERROR_MESSAGE);
+	}
 	
 	
 	
 	return pokeList;
 	}
+	
 	
 	
 	public static void saveData(String dataFile, ArrayList<Pokemon> pokemonList, PokeFrame frame)
