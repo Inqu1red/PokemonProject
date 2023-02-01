@@ -64,7 +64,49 @@ public class Controller
 	}
 	
 	
+	public String [] buildPokedexText()
+	{
+		String [] pokemonNames = new String [pokedex.size()];
+		
+		for(int index = 0; index < pokemonNames.length; index++)
+		{
+			pokemonNames[index] = index + ": " + pokedex.get(index).getClass().getSimpleName();
+			
+		}
+		
+		
+		return pokemonNames;
+	}
 	
+	public String [] getPokemonData(int index)
+	{
+		String [] data = new String [5];
+		
+		
+		Pokemon current = pokedex.get(index);
+		
+		data[0] = current.getName();
+		
+		data[1] = current.isCanEvolve() + "";
+		
+		data[2] = current.getHealth() + "";
+		
+		data[3] = current.getPokedexNumber() + "";
+		
+		
+		String types = "";
+		
+		for (String type : current.getTypes())
+		{
+			types += type + "\n";
+			
+		}
+		
+		data[4] = types;
+		
+		
+		return data;
+	}
 	
 	
 	private void createPokedex()
