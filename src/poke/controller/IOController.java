@@ -25,12 +25,27 @@ public class IOController
 	
 	
 	
+	
+	
 	return pokeList;
 	}
 	
 	
 	public static void saveData(String dataFile, ArrayList<Pokemon> pokemonList, PokeFrame frame)
 	{
+		
+	try (FileOutputStream fileStream = new FileOutputStream(dataFile);
+			ObjectOutputStream objectStream = new ObjectOutputStream(fileStream))
+	{
+		objectStream.writeObject(pokemonList);
+		
+	}
+	catch (IOException fileError)
+	{
+		JOptionPane.showMessageDialog(frame, "File save Error", "", JOptionPane.ERROR_MESSAGE);
+	}
+		
+		
 		
 	}
 	
