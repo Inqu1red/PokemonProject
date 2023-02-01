@@ -10,6 +10,7 @@ import javax.swing.JCheckBox;
 import javax.swing.JLabel;
 import javax.swing.JComboBox;
 import javax.swing.ImageIcon;
+import javax.swing.DefaultComboBoxModel;
 
 import java.awt.GridLayout;
 import java.awt.Label;
@@ -75,7 +76,7 @@ public class PokePanel extends JPanel
 		this.pokedexSelector = new JComboBox<String>();
 		
 		
-		
+		setupDropdown();
 		setupPanel();
 		setupListeners();
 		setupLayout();
@@ -131,6 +132,48 @@ public class PokePanel extends JPanel
 		updateButton.addActionListener(click -> collectInput());
 		
 		saveButton.addActionListener(click -> app.save());
+		
+		pokedexSelector.addActionListener(select -> updatePokemonScreen());
+	}
+	
+	
+	private void setupDropdown()
+	{
+		
+		DefaultComboBoxModel<String> model = new DefaultComboBoxModel<String>(app.buildPokedexText());
+		
+		pokedexSelector.setModel(model);
+		
+		
+	}
+	
+	private void updateFields(int index)
+	{
+		String [] pokeData = app.getPokemonData(index);
+		
+		nameField.setText(pokeData[0]);
+		evolveBox.setSelected(Boolean.parseBoolean(pokeData[1]));
+		healthField.setText(pokeData[2]);
+		numberField.setText(pokeData[3]);
+		typesArea.setText(pokeData[4]);
+		
+		
+		
+	}
+	
+	
+	private void updatePokemonScreen()
+	{
+		String name = pokedexSelector.getSelectedItem().toString();
+		
+		int nameStart = name.indexOf(": ") + 2;
+		
+		name = name.substring(nameStart);
+		
+		updateDisplay(name);
+		imageLabel.setText(name); 
+		updateFields(pokedexSelector.getSelectedIndex());
+		
 	}
 	
 	
@@ -190,4 +233,5 @@ public class PokePanel extends JPanel
 		
 		
 	}
+
 }
