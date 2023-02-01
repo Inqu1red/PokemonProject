@@ -145,6 +145,7 @@ public class PokePanel extends JPanel
 			icon = new ImageIcon(getClass().getResource(path + defaultName + extension) );
 		}
 		
+		imageLabel.setIcon(icon);
 	
 	}
 	
