@@ -16,6 +16,7 @@ import java.awt.Label;
 import java.awt.Color;
 import java.awt.Dimension;
 import poke.controller.Controller;
+import poke.controller.IOController;
 
 public class PokePanel extends JPanel
 {
@@ -37,6 +38,7 @@ public class PokePanel extends JPanel
 	private JLabel healthLabel;
 	
 	private JButton updateButton;
+	private JButton saveButton;
 	
 	private JPanel fieldPanel;
 	
@@ -64,6 +66,7 @@ public class PokePanel extends JPanel
 		this.healthLabel = new JLabel("Pokemon Health:");
 		
 		this.updateButton = new JButton("Update Pokemon");
+		this.saveButton = new JButton("Save Pokemon");
 		
 		this.fieldPanel = new JPanel(new GridLayout(0, 2));
 		
@@ -101,7 +104,7 @@ public class PokePanel extends JPanel
 	this.fieldPanel.add(evolveBox);
 	this.fieldPanel.add(typePane);
 	this.fieldPanel.add(updateButton);
-	
+	this.fieldPanel.add(saveButton);
 	
 	typePane.setViewportView(typesArea);
 	typesArea.setEditable(false);
@@ -126,6 +129,8 @@ public class PokePanel extends JPanel
 	{
 		
 		updateButton.addActionListener(click -> collectInput());
+		
+		saveButton.addActionListener(click -> app.save());
 	}
 	
 	
