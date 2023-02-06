@@ -94,7 +94,7 @@ public class Controller
 		data[3] = current.getPokedexNumber() + "";
 		
 		
-		String types = "";
+		String types = "Pokemon Types \n \n";
 		
 		for (String type : current.getTypes())
 		{
@@ -113,12 +113,12 @@ public class Controller
 	{
 		pokedex.add(new Gengar());
 		pokedex.add(new Lucario());
-		pokedex.add(new Sprigatitio());
+		pokedex.add(new Sprigatito());
 		pokedex.add(new Rowlet());
 		pokedex.add(new Pichu());
 		pokedex.add(new Gengar(120, "Sean124"));
 		pokedex.add(new Rowlet("little guy"));
-		pokedex.add(new Sprigatitio(940, "Grass Cat"));
+		pokedex.add(new Sprigatito(940, "Grass Cat"));
 		pokedex.add(new Pichu("Small rodent"));
 		pokedex.add(new Lucario(345, "Big Guy"));
 	}
