@@ -23,9 +23,9 @@ private void setupFrame()
 {
 	this.setContentPane(panel);
 	this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	this.setTitle("");
+	this.setTitle("pokedex project");
 	this.setSize(1024, 768);
-	this.setResizable(true);
+	this.setResizable(false);
 	
 	
 	this.setVisible(true);

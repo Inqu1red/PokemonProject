@@ -15,9 +15,9 @@ public class Controller
 {
 	
 	private PokeFrame window;
-	ArrayList<Pokemon> pokedex = new ArrayList<Pokemon>();
+	private ArrayList<Pokemon> pokedex = new ArrayList<Pokemon>();
 	
-	String dataFile = "";
+	private String dataFile = "";
 	
 	public Controller()
 	{
